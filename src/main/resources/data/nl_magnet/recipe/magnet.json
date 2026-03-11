@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "M": { "item": "minecraft:lodestone" },
+    "S": { "item": "minecraft:stick" }
+  },
+  "pattern": [
+    "M M",
+    " M ",
+    " S "
+  ],
+  "result": {
+    "count": 1,
+    "id": "nl_magnet:magnet"
+  }
+}
