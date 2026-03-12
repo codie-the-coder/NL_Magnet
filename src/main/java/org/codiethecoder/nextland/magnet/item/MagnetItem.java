@@ -18,11 +18,15 @@ public class MagnetItem extends Item {
 
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
-        if (isSelected && !level.isClientSide && entity instanceof Player player) {
+        if (level.isClientSide || !(entity instanceof Player player)) {
+            return;
+        }
+
+        boolean isHeld = isSelected || player.getOffhandItem() == stack;
+
+        if (isHeld) {
             double radius = 5.0;
-
             AABB area = player.getBoundingBox().inflate(radius);
-
             List<ItemEntity> nearbyEntities = level.getEntitiesOfClass(ItemEntity.class, area);
 
             for (ItemEntity target : nearbyEntities) {
